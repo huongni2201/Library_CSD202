@@ -1,0 +1,5 @@
+B001,The Great Gatsby,F. Scott Fitzgerald,9780743273565,Scribner,5,0,10.99
+B002,1984,George Orwell,9780451524935,Signet Classics,4,0,9.99
+B003,To Kill a Mockingbird,Harper Lee,9780060935467,Harper Perennial,3,0,7.99
+B004,Pride and Prejudice,Jane Austen,9780141439518,Penguin Classics,6,0,12.99
+B005,The Catcher in the Rye,J.D. Salinger,9780316769488,Little Brown and Company,2,0,8.99
