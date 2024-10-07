@@ -17,6 +17,10 @@ import java.io.IOException;
 public class ReaderList {
 
     private Node<Reader> head;
+    
+    public Node<Reader> getList() {
+        return head;
+    }
 
     public void addReaderToEnd(Reader reader) {
         Node<Reader> newNode = new Node<>(reader);
@@ -45,6 +49,18 @@ public class ReaderList {
 
     public void displayReaderTitle() {
         System.out.printf("%-10s%-25s%-10s\n", "RCode", "Name", "Birth Year");
+    }
+
+    public ReaderList searchByName(String name) {
+        ReaderList foundReaders = new ReaderList();  
+        Node<Reader> current = head;
+        while (current != null) {
+            if (current.data.getName().toLowerCase().contains(name.toLowerCase())) {
+                foundReaders.addReaderToEnd(current.data);  
+            }
+            current = current.next;
+        }
+        return foundReaders;  
     }
 
     public Reader searchByRcode(String rcode) {
@@ -110,6 +126,7 @@ public class ReaderList {
 
     public boolean loadDataFromFile(String fileName) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            head = null;
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
@@ -127,7 +144,6 @@ public class ReaderList {
 
     public boolean saveToFile(String path) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(path)))) {
-            head = null;
             Node<Reader> current = head;
             while (current != null) {
                 bw.write(current.data.toString());

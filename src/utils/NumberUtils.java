@@ -35,7 +35,7 @@ public class NumberUtils {
             } catch (NumberFormatException e) {
                 System.out.println("Only allowed to enter integer numbers");
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Please enter integer number in range [" + min + "," + max + "]");
+                System.out.println("Please enter integer number in range [" + min + ", " + max + "]");
             } catch (Exception e) {
                 e.printStackTrace();
             }

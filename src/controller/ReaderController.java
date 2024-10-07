@@ -25,7 +25,7 @@ public class ReaderController {
         this.readerBO = new ReaderManagement();
         loadDataFromFile(fileName);
     }
-    
+
     public ReaderList getReaderList() {
         return readerList;
     }
@@ -59,14 +59,20 @@ public class ReaderController {
         readerList.traverse();
     }
 
-    public Reader searchByName(String name) {
-        return readerList.searchByRcode(name);
+    public void searchByName(String name) {
+        ReaderList foundList = readerList.searchByName(name);
+        if (foundList.getList() == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        foundList.displayReaderTitle();
+        foundList.traverse();
     }
 
     public Reader searchByRcode(String rcode) {
         return readerList.searchByRcode(rcode);
     }
-    
+
     public void searchLendedByBcode(String rcode, BookList bookList, LendingList lendingList) {
         Reader foundReader = searchByRcode(rcode);
 

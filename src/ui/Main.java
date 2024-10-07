@@ -227,12 +227,7 @@ public class Main {
                     break;
                 case 7:
                     String name = utils.NumberUtils.getString("Enter name to search: ", "Name invalid!");
-                    Reader r = readerController.searchByName(name);
-                    if (r != null) {
-                        System.out.println(r);
-                    } else {
-                        System.out.println("Cannot find reader with name: " + name);
-                    }
+                    readerController.searchByName(name);
                     break;
                 case 8:
                     String lendedByRcode = utils.NumberUtils.getString("Enter rcode to search: ", "Rcode invalid!");
